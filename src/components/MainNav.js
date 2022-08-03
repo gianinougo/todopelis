@@ -6,7 +6,7 @@ import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -21,19 +21,19 @@ const useStyles = makeStyles({
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const navigate = useNavigate();
+  const history = useHistory();
 
   useEffect(() => {
     if (value === 0) {
-      navigate("/");
+      history.push("/");
     } else if (value === 1) {
-      navigate("/movies");
+      history.push("/movies");
     } else if (value === 2) {
-      navigate("/series");
+      history.push("/series");
     } else if (value === 3) {
-      navigate("/search");
+      history.push("/search");
     }
-  }, [value, navigate]);
+  }, [value, history]);
 
   return (
     <BottomNavigation
